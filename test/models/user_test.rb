@@ -11,4 +11,10 @@ class UserTest < ActiveSupport::TestCase
     refute user.valid?, 'user is valid without a name'
     refute_nil user.errors[:name], 'no validation error for name presence'
   end
+
+  test 'invalid user without email' do
+    user = User.new(name: 'John')
+    refute user.valid?, 'user is valid without a email'
+    refute_nil user.errors[:email], 'no validation error for email presence'
+  end
 end
