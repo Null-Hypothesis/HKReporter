@@ -2,6 +2,7 @@ module Api
   module V1
     class UsersController < V1Controller
       def create
+        @user = User.create!(user_params)
       end
 
       private
