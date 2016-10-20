@@ -20,4 +20,12 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?, '@user is valid without a email'
     refute_nil @user.errors[:email], 'no validation error for email presence'
   end
+
+  test 'invalid user with existed token' do
+    token = 'token'
+    @user.token = token
+    new_user = User.new(token: token)
+    refute new_user.valid?
+    refute_nil new_user.errors[:token]
+  end
 end
