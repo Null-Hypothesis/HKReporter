@@ -7,4 +7,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def response_json
+    @response_json ||= MultiJson.decode(response.body)
+  end
 end

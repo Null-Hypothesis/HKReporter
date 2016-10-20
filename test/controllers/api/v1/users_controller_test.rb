@@ -32,10 +32,6 @@ module Api
 
         assert_equal user_params[:description], response_json['description']
       end
-
-      def response_json
-        @response_json ||= MultiJson.decode(response.body)
-      end
     end
   end
 end
