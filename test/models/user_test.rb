@@ -33,4 +33,10 @@ class UserTest < ActiveSupport::TestCase
     @user.update_token
     assert_equal 36, @user.token.length
   end
+
+  test 'destroy token should set token to nil' do
+    @user.update_token
+    @user.destroy_token
+    assert_nil @user.token
+  end
 end
