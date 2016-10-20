@@ -10,6 +10,10 @@ class User < ApplicationRecord
     update!(token: new_valid_token)
   end
 
+  def destroy_token
+    update!(token: nil)
+  end
+
   private
 
   def new_valid_token
