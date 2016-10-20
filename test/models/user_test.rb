@@ -28,4 +28,9 @@ class UserTest < ActiveSupport::TestCase
     refute new_user.valid?
     refute_nil new_user.errors[:token]
   end
+
+  test 'updated token length should be 36' do
+    @user.update_token
+    assert_equal 36, @user.token.length
+  end
 end
