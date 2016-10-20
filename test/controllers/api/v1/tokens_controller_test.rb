@@ -18,6 +18,19 @@ module Api
         assert response_json['token']
         assert_equal john.email, response_json['email']
       end
+
+      test 'should delete token' do
+        john = users(:john)
+        john.update_token
+
+        delete api_v1_token_url,
+               params: nil,
+               headers: { 'Authorization' => "Token token=\"#{john.token}\", email=\"#{john.email}\"" }
+
+        assert_response :success
+
+        assert_nil john.reload.token
+      end
     end
   end
 end
