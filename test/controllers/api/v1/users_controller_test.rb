@@ -23,6 +23,18 @@ module Api
         end
 
         assert_response :success
+
+        assert response_json['id']
+
+        assert_equal user_params[:email], response_json['email']
+
+        assert_equal user_params[:name], response_json['name']
+
+        assert_equal user_params[:description], response_json['description']
+      end
+
+      def response_json
+        @response_json ||= MultiJson.decode(response.body)
       end
     end
   end
