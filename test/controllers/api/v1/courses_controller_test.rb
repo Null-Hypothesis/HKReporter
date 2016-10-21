@@ -61,6 +61,18 @@ module Api
             as: :json
 
         assert_response :success
+
+        assert response_json['createdAt']
+        assert response_json['updatedAt']
+
+        new_course = courses(:compiler)
+
+        assert_equal new_course.id, response_json['id']
+        assert_equal course_params[:name], response_json['name']
+        assert_equal course_params[:courseId], response_json['courseId']
+        assert_equal course_params[:description], response_json['description']
+        assert_equal course_params[:teacherId], response_json['teacherId']
+        assert_equal course_params[:courseTagIds], response_json['courseTagIds']
       end
     end
   end
