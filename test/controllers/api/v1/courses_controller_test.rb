@@ -54,6 +54,14 @@ module Api
         assert_equal course_params[:teacherId], response_json['teacherId']
         assert_equal course_params[:courseTagIds], response_json['courseTagIds']
       end
+
+      test 'should update course' do
+        put api_v1_course_url(courses(:compiler)),
+            params: course_params,
+            as: :json
+
+        assert_response :success
+      end
     end
   end
 end
