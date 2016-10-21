@@ -20,6 +20,12 @@ module Api
 
         assert_equal 1, response_json.size
       end
+
+      test 'should create new course' do
+        post api_v1_courses_url
+
+        assert_response :success
+      end
     end
   end
 end
