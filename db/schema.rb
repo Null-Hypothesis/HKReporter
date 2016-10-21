@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021010631) do
+ActiveRecord::Schema.define(version: 20161021011210) do
+
+  create_table "course_taggings", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "course_tag_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["course_id"], name: "index_course_taggings_on_course_id"
+    t.index ["course_tag_id"], name: "index_course_taggings_on_course_tag_id"
+  end
 
   create_table "course_tags", force: :cascade do |t|
     t.string   "name"
