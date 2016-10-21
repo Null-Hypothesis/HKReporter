@@ -55,6 +55,14 @@ module Api
         assert_course_response(courses(:compiler).reload)
       end
 
+      test 'should delete course' do
+        assert_difference -> { Course.count }, -1 do
+          delete api_v1_courses_url(courses(:compiler))
+        end
+
+        assert_response :success
+      end
+
       private
 
       def assert_course_response(course)
