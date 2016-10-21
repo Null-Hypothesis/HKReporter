@@ -10,6 +10,7 @@ module Api
       end
 
       def update
+        course.update!(course_params)
       end
 
       private
@@ -24,6 +25,10 @@ module Api
                                          :description,
                                          :teacher_id,
                                          course_tag_ids: [])
+      end
+
+      def course
+        @course ||= Course.find(params.require(:id))
       end
     end
   end
