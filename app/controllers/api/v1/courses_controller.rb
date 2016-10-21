@@ -13,6 +13,10 @@ module Api
         course.update!(course_params)
       end
 
+      def delete
+        course.destroy!
+      end
+
       private
 
       def query

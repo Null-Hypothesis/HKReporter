@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :courses, only: %i(index create update)
+      resources :courses, only: %i(index create update delete)
     end
   end
 
