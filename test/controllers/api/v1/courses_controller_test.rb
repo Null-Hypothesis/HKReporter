@@ -52,7 +52,7 @@ module Api
 
         assert_response :success
 
-        assert_course_response(courses(:compiler))
+        assert_course_response(courses(:compiler).reload)
       end
 
       private
@@ -62,11 +62,11 @@ module Api
         assert response_json['updatedAt']
 
         assert_equal course.id, response_json['id']
-        assert_equal course_params[:name], response_json['name']
-        assert_equal course_params[:courseId], response_json['courseId']
-        assert_equal course_params[:description], response_json['description']
-        assert_equal course_params[:teacherId], response_json['teacherId']
-        assert_equal course_params[:courseTagIds], response_json['courseTagIds']
+        assert_equal course.name, response_json['name']
+        assert_equal course.course_id, response_json['courseId']
+        assert_equal course.description, response_json['description']
+        assert_equal course.teacher_id, response_json['teacherId']
+        assert_equal course.course_tag_ids, response_json['courseTagIds']
       end
     end
   end
