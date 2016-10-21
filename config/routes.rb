@@ -6,6 +6,8 @@ Rails.application.routes.draw do
           resource :token, only: %i(create destroy)
         end
       end
+
+      resources :courses, only: %i(index)
     end
   end
 
