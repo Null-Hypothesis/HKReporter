@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-  course_id: MyString
+software_engineering:
+  name: Software Engineering
+  description: Some texts
+  course_id: COMP130112.01
 
-two:
-  name: MyString
-  description: MyString
-  course_id: MyString
+compiler:
+  name: Compiler
+  description: Some texts
+  course_id: COMP130114.01
