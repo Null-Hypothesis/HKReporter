@@ -8,6 +8,8 @@ module Api
             as: :json
 
         assert_response :success
+
+        assert_equal Course.count, response_json.size
       end
     end
   end
