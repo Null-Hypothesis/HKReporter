@@ -2,11 +2,7 @@ module Api
   module V1
     class CoursesController < V1Controller
       def index
-        @courses = if query
-                     Course.where('name LIKE ?', "%#{query}%")
-                   else
-                     Course.all
-                   end
+        @courses = Course.query(query)
       end
 
       private

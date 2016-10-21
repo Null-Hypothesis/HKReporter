@@ -4,4 +4,12 @@ class Course < ApplicationRecord
   has_many :posts
 
   belongs_to :teacher
+
+  def self.query(query)
+    if query
+      Course.where('name LIKE ?', "%#{query}%")
+    else
+      Course.all
+    end
+  end
 end
