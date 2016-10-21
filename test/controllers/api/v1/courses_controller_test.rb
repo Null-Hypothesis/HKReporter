@@ -11,6 +11,15 @@ module Api
 
         assert_equal Course.count, response_json.size
       end
+
+      test 'should query courses by name' do
+        get api_v1_courses_url(query: 'engineer'),
+            as: :json
+
+        assert_response :success
+
+        assert_equal 1, response_json.size
+      end
     end
   end
 end
