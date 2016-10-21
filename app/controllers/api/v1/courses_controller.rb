@@ -5,6 +5,9 @@ module Api
         @courses = Course.query(query)
       end
 
+      def create
+      end
+
       private
 
       def query
