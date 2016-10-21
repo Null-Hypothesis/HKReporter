@@ -22,7 +22,18 @@ module Api
       end
 
       test 'should create new course' do
-        post api_v1_courses_url
+        course_params = {
+          name: 'Compiler',
+          courseId: 'COMP130014.02',
+          description: 'Some texts',
+          teacherId: teachers(:yanbo).id
+        }
+
+        assert_difference -> { Course.count } do
+          post api_v1_courses_url,
+               params: course_params,
+               as: :json
+        end
 
         assert_response :success
       end
