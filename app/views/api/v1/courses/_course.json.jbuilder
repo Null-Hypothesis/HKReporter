@@ -5,3 +5,4 @@ json.description course.description
 json.createdAt course.created_at
 json.updatedAt course.updated_at
 json.teacherId course.teacher_id
+json.courseTagIds course.course_tag_ids
