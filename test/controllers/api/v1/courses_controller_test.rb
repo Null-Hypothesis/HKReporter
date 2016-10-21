@@ -3,9 +3,11 @@ require 'test_helper'
 module Api
   module V1
     class CoursesControllerTest < ActionDispatch::IntegrationTest
-      # test "the truth" do
-      #   assert true
-      # end
+      test 'should get courses list' do
+        get api_v1_courses_url
+
+        assert_response :success
+      end
     end
   end
 end
