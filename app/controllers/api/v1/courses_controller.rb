@@ -16,7 +16,11 @@ module Api
       end
 
       def course_params
-        @course_params ||= params.permit(:name, :course_id, :description, :teacher_id)
+        @course_params ||= params.permit(:name,
+                                         :course_id,
+                                         :description,
+                                         :teacher_id,
+                                         course_tag_ids: [])
       end
     end
   end
