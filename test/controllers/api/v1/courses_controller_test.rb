@@ -26,7 +26,8 @@ module Api
           name: 'Compiler',
           courseId: 'COMP130014.02',
           description: 'Some texts',
-          teacherId: teachers(:yanbo).id
+          teacherId: teachers(:yanbo).id,
+          courseTagIds: [course_tags(:cs).id]
         }
 
         assert_difference -> { Course.count } do
@@ -47,6 +48,7 @@ module Api
         assert_equal course_params[:courseId], response_json['courseId']
         assert_equal course_params[:description], response_json['description']
         assert_equal course_params[:teacherId], response_json['teacherId']
+        assert_equal course_params[:courseTagIds], response_json['courseTagIds']
       end
     end
   end
