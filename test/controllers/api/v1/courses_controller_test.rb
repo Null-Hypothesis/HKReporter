@@ -3,6 +3,18 @@ require 'test_helper'
 module Api
   module V1
     class CoursesControllerTest < ActionDispatch::IntegrationTest
+      attr_accessor :course_params
+
+      def setup
+        self.course_params = {
+          name: 'Yan',
+          courseId: 'COMP136666.01',
+          description: 'New descriptions',
+          teacherId: teachers(:yanbo).id,
+          courseTagIds: [course_tags(:cs).id]
+        }
+      end
+
       test 'should get courses list' do
         get api_v1_courses_url,
             as: :json
@@ -22,14 +34,6 @@ module Api
       end
 
       test 'should create new course' do
-        course_params = {
-          name: 'Compiler',
-          courseId: 'COMP130014.02',
-          description: 'Some texts',
-          teacherId: teachers(:yanbo).id,
-          courseTagIds: [course_tags(:cs).id]
-        }
-
         assert_difference -> { Course.count } do
           post api_v1_courses_url,
                params: course_params,
