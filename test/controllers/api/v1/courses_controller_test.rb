@@ -42,17 +42,7 @@ module Api
 
         assert_response :success
 
-        assert response_json['createdAt']
-        assert response_json['updatedAt']
-
-        new_course = Course.last
-
-        assert_equal new_course.id, response_json['id']
-        assert_equal course_params[:name], response_json['name']
-        assert_equal course_params[:courseId], response_json['courseId']
-        assert_equal course_params[:description], response_json['description']
-        assert_equal course_params[:teacherId], response_json['teacherId']
-        assert_equal course_params[:courseTagIds], response_json['courseTagIds']
+        assert_course_response(Course.last)
       end
 
       test 'should update course' do
@@ -62,12 +52,16 @@ module Api
 
         assert_response :success
 
+        assert_course_response(courses(:compiler))
+      end
+
+      private
+
+      def assert_course_response(course)
         assert response_json['createdAt']
         assert response_json['updatedAt']
 
-        new_course = courses(:compiler)
-
-        assert_equal new_course.id, response_json['id']
+        assert_equal course.id, response_json['id']
         assert_equal course_params[:name], response_json['name']
         assert_equal course_params[:courseId], response_json['courseId']
         assert_equal course_params[:description], response_json['description']
