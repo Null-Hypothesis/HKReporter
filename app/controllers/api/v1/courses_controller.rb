@@ -9,6 +9,9 @@ module Api
         @course = Course.create!(course_params)
       end
 
+      def update
+      end
+
       private
 
       def query
