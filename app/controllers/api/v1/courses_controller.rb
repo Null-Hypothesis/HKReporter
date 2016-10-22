@@ -5,6 +5,10 @@ module Api
         @courses = Course.query(query)
       end
 
+      def show
+        course
+      end
+
       def create
         @course = Course.create!(course_params)
       end
