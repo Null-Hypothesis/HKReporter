@@ -13,7 +13,7 @@ module Api
         course.update!(course_params)
       end
 
-      def delete
+      def destroy
         course.destroy!
       end
 
