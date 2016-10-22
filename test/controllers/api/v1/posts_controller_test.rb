@@ -19,7 +19,8 @@ module Api
                  stars: 3,
                  comment: 'This is a normal course',
                  courseId: courses(:compiler).id,
-                 userId: users(:john).id
+                 userId: users(:john).id,
+                 post_tag_ids: [post_tags(:nice).id]
                },
                as: :json
         end
