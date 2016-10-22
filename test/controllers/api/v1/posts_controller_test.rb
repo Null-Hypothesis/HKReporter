@@ -4,7 +4,7 @@ module Api
   module V1
     class PostsControllerTest < ActionDispatch::IntegrationTest
       setup do
-        @post = posts(:one)
+        @post = posts(:best)
       end
 
       test 'should get index' do
