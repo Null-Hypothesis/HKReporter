@@ -50,7 +50,8 @@ module Api
 
       test 'should destroy post' do
         assert_difference('Post.count', -1) do
-          delete api_v1_post_url(@post), as: :json
+          delete api_v1_post_url(@post),
+                 as: :json
         end
 
         assert_response :success
