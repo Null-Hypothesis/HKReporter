@@ -45,6 +45,13 @@ module Api
         assert_course_response(Course.last)
       end
 
+      test 'should show course' do
+        get api_v1_course_url(courses(:compiler)), as: :json
+        assert_response :success
+
+        assert_course_response(courses(:compiler))
+      end
+
       test 'should update course' do
         put api_v1_course_url(courses(:compiler)),
             params: course_params,
