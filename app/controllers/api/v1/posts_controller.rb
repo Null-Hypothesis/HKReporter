@@ -7,6 +7,8 @@ module Api
       # GET /posts.json
       def index
         @posts = Post.all
+
+        @posts = @posts.where(user_id: user_id) if user_id
       end
 
       # GET /posts/1
@@ -47,6 +49,10 @@ module Api
                       :course_id,
                       :user_id,
                       post_tag_ids: [])
+      end
+
+      def user_id
+        params[:userId]
       end
     end
   end
