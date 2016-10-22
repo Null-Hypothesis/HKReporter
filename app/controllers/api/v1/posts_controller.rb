@@ -23,11 +23,7 @@ module Api
       # PATCH/PUT /posts/1
       # PATCH/PUT /posts/1.json
       def update
-        if @post.update(post_params)
-          render :show, status: :ok, location: @post
-        else
-          render json: @post.errors, status: :unprocessable_entity
-        end
+        @post.update!(post_params)
       end
 
       # DELETE /posts/1
