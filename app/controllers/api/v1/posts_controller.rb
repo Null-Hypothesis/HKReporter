@@ -17,13 +17,7 @@ module Api
       # POST /posts
       # POST /posts.json
       def create
-        @post = Post.new(post_params)
-
-        if @post.save
-          render :show, status: :created, location: @post
-        else
-          render json: @post.errors, status: :unprocessable_entity
-        end
+        @post = Post.create!(post_params)
       end
 
       # PATCH/PUT /posts/1
@@ -52,7 +46,7 @@ module Api
       # Never trust parameters from the scary internet, only allow the white
       # list through.
       def post_params
-        params.fetch(:post, {})
+        params.permit(:stars, :comment, :course_id, :user_id)
       end
     end
   end
