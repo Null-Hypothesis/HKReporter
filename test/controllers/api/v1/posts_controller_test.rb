@@ -22,6 +22,17 @@ module Api
         assert_equal Post.where(user_id: john_id).count, response_json.size
       end
 
+      test 'should get post for compiler' do
+        compiler_id = courses(:compiler).id
+        get api_v1_posts_url(courseId: compiler_id),
+            as: :json
+
+        assert_response :success
+
+        assert_equal Post.where(course_id: compiler_id).count,
+                     response_json.size
+      end
+
       test 'should create post' do
         assert_difference('Post.count') do
           post api_v1_posts_url,
