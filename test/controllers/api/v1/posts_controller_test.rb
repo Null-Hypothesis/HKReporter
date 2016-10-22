@@ -12,6 +12,16 @@ module Api
         assert_response :success
       end
 
+      test 'should get post created by john' do
+        john_id = users(:john).id
+        get api_v1_posts_url(userId: john_id),
+            as: :json
+
+        assert_response :success
+
+        assert_equal Post.where(user_id: john_id).count, response_json.size
+      end
+
       test 'should create post' do
         assert_difference('Post.count') do
           post api_v1_posts_url,
