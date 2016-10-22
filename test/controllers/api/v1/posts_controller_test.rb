@@ -38,8 +38,14 @@ module Api
       end
 
       test 'should update post' do
-        patch api_v1_post_url(@post), params: { post: {  } }, as: :json
+        patch api_v1_post_url(@post),
+              params: {
+                stars: 3
+              },
+              as: :json
         assert_response :success
+
+        assert_post_response(@post.reload)
       end
 
       test 'should destroy post' do
