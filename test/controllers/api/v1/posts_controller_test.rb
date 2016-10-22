@@ -33,6 +33,8 @@ module Api
       test 'should show post' do
         get api_v1_post_url(@post), as: :json
         assert_response :success
+
+        assert_post_response(@post)
       end
 
       test 'should update post' do
