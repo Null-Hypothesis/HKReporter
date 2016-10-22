@@ -46,7 +46,11 @@ module Api
       # Never trust parameters from the scary internet, only allow the white
       # list through.
       def post_params
-        params.permit(:stars, :comment, :course_id, :user_id)
+        params.permit(:stars,
+                      :comment,
+                      :course_id,
+                      :user_id,
+                      post_tag_ids: [])
       end
     end
   end
