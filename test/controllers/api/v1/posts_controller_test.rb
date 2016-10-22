@@ -14,7 +14,14 @@ module Api
 
       test 'should create post' do
         assert_difference('Post.count') do
-          post api_v1_posts_url, params: { post: {  } }, as: :json
+          post api_v1_posts_url,
+               params: {
+                 stars: 3,
+                 comment: 'This is a normal course',
+                 courseId: courses(:compiler).id,
+                 userId: users(:john).id
+               },
+               as: :json
         end
 
         assert_response :success
