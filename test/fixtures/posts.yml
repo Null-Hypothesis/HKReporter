@@ -11,3 +11,9 @@ worst:
   comment: This is the worst course ever
   course: compiler
   user: john
+
+middle:
+  stars: 3
+  comment: This is a normal course
+  course: compiler
+  user: other

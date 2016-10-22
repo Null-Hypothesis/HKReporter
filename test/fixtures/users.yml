@@ -4,3 +4,8 @@ john:
   name: John
   email: john@example.com
   password_digest: <%= BCrypt::Password.create('123123', cost: 4) %>
+
+other:
+  name: Somebody
+  email: somebody@example.com
+  password_digest: <%= BCrypt::Password.create('123123', cost: 4) %>
