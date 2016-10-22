@@ -26,6 +26,8 @@ module Api
         end
 
         assert_response :success
+
+        assert_post_response(Post.last)
       end
 
       test 'should show post' do
@@ -44,6 +46,20 @@ module Api
         end
 
         assert_response :success
+      end
+
+      private
+
+      def assert_post_response(post)
+        assert response_json['createdAt']
+        assert response_json['updatedAt']
+
+        assert_equal post.id, response_json['id']
+        assert_equal post.stars, response_json['stars']
+        assert_equal post.comment, response_json['comment']
+        assert_equal post.course_id, response_json['courseId']
+        assert_equal post.user_id, response_json['userId']
+        assert_equal post.post_tag_ids, response_json['postTagIds']
       end
     end
   end
