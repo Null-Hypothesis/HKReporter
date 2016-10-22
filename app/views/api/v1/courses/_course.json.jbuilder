@@ -1,8 +1,10 @@
-json.id course.id
-json.name course.name
-json.courseId course.course_id
-json.description course.description
-json.createdAt course.created_at
-json.updatedAt course.updated_at
-json.teacherId course.teacher_id
-json.courseTagIds course.course_tag_ids
+json.key_format! camelize: :lower
+json.extract! course,
+              :id,
+              :name,
+              :course_id,
+              :description,
+              :created_at,
+              :updated_at,
+              :teacher_id,
+              :course_tag_ids
