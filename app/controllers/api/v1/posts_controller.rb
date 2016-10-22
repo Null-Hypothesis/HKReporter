@@ -9,6 +9,7 @@ module Api
         @posts = Post.all
 
         @posts = @posts.where(user_id: user_id) if user_id
+        @posts = @posts.where(course_id: course_id) if course_id
       end
 
       # GET /posts/1
@@ -53,6 +54,10 @@ module Api
 
       def user_id
         params[:userId]
+      end
+
+      def course_id
+        params[:courseId]
       end
     end
   end
