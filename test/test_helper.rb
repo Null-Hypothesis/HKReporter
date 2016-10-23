@@ -9,6 +9,10 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def response_json
-    @response_json ||= MultiJson.decode(response.body)
+    @response_json ||= if response.body.empty?
+                         ''
+                       else
+                         MultiJson.decode(response.body)
+                       end
   end
 end
