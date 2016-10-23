@@ -4,8 +4,10 @@ software_engineering:
   name: Software Engineering
   description: Some texts
   course_id: COMP130112.01
+  teacher: shenliwei
 
 compiler:
   name: Compiler
   description: Some texts
   course_id: COMP130114.01
+  teacher: yanbo
