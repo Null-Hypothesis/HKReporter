@@ -7,5 +7,7 @@ json.extract! post,
               :created_at,
               :updated_at,
               :course_id,
-              :user_id,
               :post_tag_ids
+json.user do
+  json.partial! 'api/v1/users/user', user: post.user
+end

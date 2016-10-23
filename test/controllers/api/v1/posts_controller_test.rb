@@ -90,8 +90,11 @@ module Api
         assert_equal post.title, response_json['title']
         assert_equal post.comment, response_json['comment']
         assert_equal post.course_id, response_json['courseId']
-        assert_equal post.user_id, response_json['userId']
         assert_equal post.post_tag_ids, response_json['postTagIds']
+
+        assert_equal post.user.id, response_json['user']['id']
+        assert_equal post.user.email, response_json['user']['email']
+        assert_equal post.user.name, response_json['user']['name']
       end
     end
   end
