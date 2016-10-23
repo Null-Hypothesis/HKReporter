@@ -9,4 +9,3 @@ json.extract! post,
               :course_id,
               :user_id,
               :post_tag_ids
-json.url api_v1_post_url(post, format: :json)
