@@ -7,7 +7,14 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :courses
+      resources :courses do
+        collection do
+          resources :tags,
+                    as: 'course_tags',
+                    controller: 'course_tags',
+                    only: %i(index create destroy)
+        end
+      end
 
       resources :posts
     end
