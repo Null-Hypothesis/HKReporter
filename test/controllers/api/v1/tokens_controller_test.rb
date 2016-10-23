@@ -17,6 +17,9 @@ module Api
         assert response_json['id']
         assert response_json['token']
         assert_equal john.email, response_json['email']
+        assert_equal john.id, response_json['id']
+        assert_equal john.name, response_json['name']
+        assert_equal john.description, response_json['description']
       end
 
       test 'should delete token' do
