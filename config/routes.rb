@@ -16,6 +16,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :teachers
+
       resources :posts do
         collection do
           resources :tags,
