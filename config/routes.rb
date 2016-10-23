@@ -16,7 +16,14 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :posts
+      resources :posts do
+        collection do
+          resources :tags,
+                    as: 'post_tags',
+                    controller: 'post_tags',
+                    only: %i(index create destroy)
+        end
+      end
     end
   end
 
