@@ -38,6 +38,7 @@ module Api
           post api_v1_posts_url,
                params: {
                  stars: 3,
+                 title: 'Normal',
                  comment: 'This is a normal course',
                  courseId: courses(:compiler).id,
                  userId: users(:john).id,
@@ -86,6 +87,7 @@ module Api
 
         assert_equal post.id, response_json['id']
         assert_equal post.stars, response_json['stars']
+        assert_equal post.title, response_json['title']
         assert_equal post.comment, response_json['comment']
         assert_equal post.course_id, response_json['courseId']
         assert_equal post.user_id, response_json['userId']

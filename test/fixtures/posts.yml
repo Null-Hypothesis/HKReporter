@@ -2,18 +2,21 @@
 
 best:
   stars: 5
+  title: Best
   comment: This is the best course ever
   course: software_engineering
   user: john
 
 worst:
   stars: 1
+  title: Worst
   comment: This is the worst course ever
   course: compiler
   user: john
 
 middle:
   stars: 3
+  title: Middle
   comment: This is a normal course
   course: compiler
   user: other

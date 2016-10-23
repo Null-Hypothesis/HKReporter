@@ -2,6 +2,7 @@ json.key_format! camelize: :lower
 json.extract! post,
               :id,
               :stars,
+              :title,
               :comment,
               :created_at,
               :updated_at,
