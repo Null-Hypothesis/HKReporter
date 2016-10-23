@@ -46,6 +46,7 @@ module Api
       # list through.
       def post_params
         params.permit(:stars,
+                      :title,
                       :comment,
                       :course_id,
                       :user_id,
