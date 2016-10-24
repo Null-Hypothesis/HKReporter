@@ -7,7 +7,7 @@ class Course < ApplicationRecord
 
   def self.query(query)
     if query
-      Course.where('name LIKE ?', "%#{query}%")
+      Course.where('name ILIKE ?', "%#{query}%")
     else
       Course.all
     end
