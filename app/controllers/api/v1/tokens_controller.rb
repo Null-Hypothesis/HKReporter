@@ -12,6 +12,7 @@ module Api
 
       def destroy
         current_user.destroy_token
+        head :ok
       end
 
       private
