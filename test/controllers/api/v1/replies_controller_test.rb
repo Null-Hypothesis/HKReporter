@@ -6,9 +6,11 @@ class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
     @reply = replies(:real)
   end
 
-  test "should get index" do
-    get api_v1_post_replies_url, as: :json
+  test 'should get index' do
+    get api_v1_post_replies_url(post_id: @post), as: :json
     assert_response :success
+
+    assert_equal @post.replies.count, response_json.size
   end
 
   test "should create reply" do
