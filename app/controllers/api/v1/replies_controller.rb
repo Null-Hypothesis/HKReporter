@@ -1,6 +1,7 @@
 module Api
   module V1
     class RepliesController < ApplicationController
+      before_action :set_post, only: %i(index create)
       before_action :set_reply, only: [:show, :update, :destroy]
 
       # GET /replies
@@ -43,6 +44,10 @@ module Api
       end
 
       private
+
+      def set_post
+        @post = Post.find(params[:post_id])
+      end
 
       # Use callbacks to share common setup or constraints between actions.
       def set_reply
