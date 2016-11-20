@@ -7,7 +7,7 @@ module Api
       # GET /replies
       # GET /replies.json
       def index
-        @replies = Reply.all
+        @replies = @post.replies
       end
 
       # GET /replies/1
