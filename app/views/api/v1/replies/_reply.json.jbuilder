@@ -1,2 +1,6 @@
-json.extract! reply, :id, :created_at, :updated_at
-json.url reply_url(reply, format: :json)
+json.key_format! camelize: :lower
+json.extract! reply,
+              :id,
+              :content,
+              :created_at,
+              :updated_at
