@@ -1,1 +1,1 @@
-json.array! @replies, partial: 'replies/reply', as: :reply
+json.array! @replies, partial: 'reply', as: :reply
