@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user: one
-  post: one
+real:
+  content: This is true
+  user: john
+  post: best
 
-two:
-  content: MyText
-  user: two
-  post: two
+fake:
+  content: This is not true
+  user: other
+  post: worst
