@@ -2,8 +2,6 @@ version: '2'
 services:
   db:
     image: postgres:9.6.0
-    ports:
-      - "5433:5433"
 
   web:
     build: .
