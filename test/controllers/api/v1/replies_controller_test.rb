@@ -2,7 +2,8 @@ require 'test_helper'
 
 class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @reply = replies(:one)
+    @post = posts(:best)
+    @reply = replies(:real)
   end
 
   test "should get index" do
