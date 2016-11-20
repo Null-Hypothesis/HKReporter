@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :posts
+  has_many :replies
 
   validates :email, presence: true,
                     uniqueness: true

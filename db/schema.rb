@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20161120131031) do
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_replies_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_replies_on_user_id", using: :btree
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -83,4 +93,6 @@ ActiveRecord::Schema.define(version: 20161120131031) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "replies", "posts"
+  add_foreign_key "replies", "users"
 end
