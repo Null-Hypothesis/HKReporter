@@ -9,7 +9,8 @@ module Api
         email = options.blank? ? nil : options[:email]
         user = User.find_by_email email
 
-        if user && ActiveSupport::SecurityUtils.secure_compare(user.token, token)
+        if user && !user.token.blank? &&
+           ActiveSupport::SecurityUtils.secure_compare(user.token, token)
           self.current_user = user
         else
           render :unauthorized
