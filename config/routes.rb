@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       resources :teachers
 
       resources :posts do
+        resources :replies
+
         collection do
           resources :tags,
                     as: 'post_tags',
