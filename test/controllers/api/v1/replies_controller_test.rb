@@ -14,12 +14,17 @@ class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @post.replies.count, response_json.size
   end
 
-  test "should create reply" do
+  test 'should create reply' do
     assert_difference('Reply.count') do
-      post api_v1_post_replies_url, params: { reply: {  } }, as: :json
+      post api_v1_post_replies_url(post_id: @post),
+           params: {
+             content: 'test',
+             user_id: @user.id
+           },
+           as: :json
     end
 
-    assert_response 201
+    assert_response :success
   end
 
   test "should show reply" do
