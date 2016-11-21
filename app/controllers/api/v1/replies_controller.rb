@@ -57,7 +57,10 @@ module Api
       # Never trust parameters from the scary internet, only allow the white
       # list through.
       def reply_params
-        params.fetch(:reply, {})
+        params.permit(
+          :content,
+          :user_id
+        )
       end
     end
   end
