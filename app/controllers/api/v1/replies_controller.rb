@@ -18,10 +18,11 @@ module Api
       # POST /replies
       # POST /replies.json
       def create
-        @reply = Reply.new(reply_params)
+        @reply = user.replies.new(reply_params)
+        @reply.post = @post
 
         if @reply.save
-          render :show, status: :created, location: @reply
+          render :show
         else
           render json: @reply.errors, status: :unprocessable_entity
         end
