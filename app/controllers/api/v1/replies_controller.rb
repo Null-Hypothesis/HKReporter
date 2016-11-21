@@ -32,7 +32,7 @@ module Api
       # PATCH/PUT /replies/1.json
       def update
         if @reply.update(reply_params)
-          render :show, status: :ok, location: @reply
+          render :show
         else
           render json: @reply.errors, status: :unprocessable_entity
         end
