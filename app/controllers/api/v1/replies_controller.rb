@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RepliesController < ApplicationController
+    class RepliesController < V1Controller
       before_action :set_post, only: %i(index create)
       before_action :set_reply, only: [:show, :update, :destroy]
 
