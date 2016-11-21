@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:john)
     @post = posts(:best)
     @reply = replies(:real)
   end
