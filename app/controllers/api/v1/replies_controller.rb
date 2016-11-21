@@ -45,6 +45,10 @@ module Api
 
       private
 
+      def user
+        @user ||= User.find(reply_params[:user_id])
+      end
+
       def set_post
         @post = Post.find(params[:post_id])
       end
