@@ -1,1 +1,1 @@
-json.partial! "replies/reply", reply: @reply
+json.partial! 'reply', reply: @reply
