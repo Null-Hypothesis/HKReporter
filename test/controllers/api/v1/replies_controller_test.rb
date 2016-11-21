@@ -46,11 +46,11 @@ class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'new', @reply.content
   end
 
-  test "should destroy reply" do
+  test 'should destroy reply' do
     assert_difference('Reply.count', -1) do
-      delete api_v1_post_reply_url(@reply), as: :json
+      delete api_v1_post_reply_url(@reply, post_id: @post), as: :json
     end
 
-    assert_response 204
+    assert_response :success
   end
 end
