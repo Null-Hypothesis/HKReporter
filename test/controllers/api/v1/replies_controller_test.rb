@@ -32,9 +32,18 @@ class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update reply" do
-    patch api_v1_post_reply_url(@reply), params: { reply: {  } }, as: :json
-    assert_response 200
+  test 'should update reply' do
+    patch api_v1_post_reply_url(@reply, post_id: @post),
+          params: {
+            content: 'new',
+            user_id: @user.id
+          },
+          as: :json
+    assert_response :success
+
+    @reply.reload
+
+    assert_equal 'new', @reply.content
   end
 
   test "should destroy reply" do
