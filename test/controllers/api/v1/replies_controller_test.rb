@@ -27,8 +27,8 @@ class Api::V1::RepliesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should show reply" do
-    get api_v1_post_reply_url(@reply), as: :json
+  test 'should show reply' do
+    get api_v1_post_reply_url(@reply, post_id: @post), as: :json
     assert_response :success
   end
 
