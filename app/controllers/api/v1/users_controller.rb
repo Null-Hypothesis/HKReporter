@@ -5,6 +5,10 @@ module Api
         @user = User.create!(user_create_params)
       end
 
+      def update
+        user.update!(user_update_params)
+      end
+
       private
 
       def user_create_params
@@ -13,6 +17,15 @@ module Api
                                        :password_confirmation,
                                        :name,
                                        :description)
+      end
+
+      def user_update_params
+        @user_params ||= params.permit(:name,
+                                       :description)
+      end
+
+      def user
+        @user ||= User.find(params[:id])
       end
     end
   end
