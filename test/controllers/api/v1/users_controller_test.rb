@@ -3,10 +3,10 @@ require 'test_helper'
 module Api
   module V1
     class UsersControllerTest < ActionDispatch::IntegrationTest
-      attr_accessor :user_params
+      attr_accessor :user_create_params
 
       def setup
-        @user_params = {
+        @user_create_params = {
           email: 'chairman@example.com',
           password: 'hahaha',
           passwordConfirmation: 'hahaha',
@@ -18,7 +18,7 @@ module Api
       test 'should create new user' do
         assert_difference('User.count') do
           post api_v1_users_url,
-               params: user_params,
+               params: user_create_params,
                as: :json
         end
 
@@ -26,11 +26,11 @@ module Api
 
         assert response_json['id']
 
-        assert_equal user_params[:email], response_json['email']
+        assert_equal user_create_params[:email], response_json['email']
 
-        assert_equal user_params[:name], response_json['name']
+        assert_equal user_create_params[:name], response_json['name']
 
-        assert_equal user_params[:description], response_json['description']
+        assert_equal user_create_params[:description], response_json['description']
       end
     end
   end
