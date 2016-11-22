@@ -95,6 +95,8 @@ module Api
         assert_equal post.user.id, response_json['user']['id']
         assert_equal post.user.email, response_json['user']['email']
         assert_equal post.user.name, response_json['user']['name']
+
+        assert_equal post.replies.count, response_json['repliesCount']
       end
     end
   end
