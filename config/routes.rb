@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: %i(create update) do
+      resources :users, only: %i(create update show) do
         collection do
           resource :token, only: %i(create destroy)
         end

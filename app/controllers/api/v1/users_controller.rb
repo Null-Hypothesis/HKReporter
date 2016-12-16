@@ -9,6 +9,10 @@ module Api
         user.update!(user_update_params)
       end
 
+      def show
+        user
+      end
+
       private
 
       def user_create_params

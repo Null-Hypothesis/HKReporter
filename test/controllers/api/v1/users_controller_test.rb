@@ -51,6 +51,12 @@ module Api
 
         assert_equal user_update_params[:description], response_json['description']
       end
+
+      test 'should show user' do
+        get api_v1_user_url(john), as: :json
+
+        assert_response :success
+      end
     end
   end
 end
