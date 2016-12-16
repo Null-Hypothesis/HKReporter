@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :replies
+  has_many :favorites
 
   validates :email, presence: true,
                     uniqueness: true

@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   has_many :post_taggings
   has_many :post_tags, through: :post_taggings
   has_many :replies, dependent: :destroy
+  has_many :favorites
 end
