@@ -3,4 +3,5 @@ json.extract! user,
               :email,
               :name,
               :description,
-              :posts
+              :posts,
+              :favorites
