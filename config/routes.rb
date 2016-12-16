@@ -9,6 +9,8 @@ Rails.application.routes.draw do
         resources :favorites
       end
 
+      resources :messages, only: %i(index create)
+
       resources :courses do
         collection do
           resources :tags,
