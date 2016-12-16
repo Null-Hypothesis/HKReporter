@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         collection do
           resource :token, only: %i(create destroy)
         end
+
+        resources :favorites
       end
 
       resources :courses do
