@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :replies
   has_many :favorites
+  has_many :sent_messages, class_name: Message, foreign_key: :from_user_id
+  has_many :received_messages, class_name: Message, foreign_key: :to_user_id
 
   validates :email, presence: true,
                     uniqueness: true
