@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hi:
+  from: john
+  to: other
+  content: Hi
+
+hehe:
+  from: other
+  to: john
+  content: Hehe
