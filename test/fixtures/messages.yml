@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 hi:
-  from: john
-  to: other
+  from_user: john
+  to_user: other
   content: Hi
 
 hehe:
-  from: other
-  to: john
+  from_user: other
+  to_user: john
   content: Hehe
